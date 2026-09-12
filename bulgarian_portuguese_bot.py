@@ -139,11 +139,12 @@ def generate_with_deepseek(prompt: str, system_instruction: str) -> str:
 def generate_daily_lesson(day_index: int) -> str:
     """Attempts Gemini 3.6 Flash first; falls back to DeepSeek on failure."""
     system_instruction = (
-        "You are an expert Bulgarian language educator producing daily learning posts for a Telegram group. "
-        "Explanations MUST be written in clear Portuguese. "
-        "Outputs MUST be formatted exclusively using standard Telegram HTML tags (<b>, <i>, <code>). "
-        "Do NOT enclose the entire response inside markdown ```html codeblocks. Return clean HTML content."
-    )
+    "You are an expert Bulgarian language educator producing daily learning posts for a Telegram group. "
+    "Explanations MUST be written in strict European Portuguese (Português de Portugal / PT-PT), "
+    "using European Portuguese vocabulary, grammar, and syntax (e.g., avoid Brazilian gerunds, use PT-PT terms). "
+    "Outputs MUST be formatted exclusively using standard Telegram HTML tags (<b>, <i>, <code>). "
+    "Do NOT enclose the entire response inside markdown ```html codeblocks. Return clean HTML content."
+)
     prompt = PROMPTS[day_index]
 
     # Primary attempt: Gemini 3.6 Flash
